@@ -1,0 +1,129 @@
+<div *ngIf="currentCustomer">
+    <h4>Customer : {{currentCustomer.companyName}}</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card bg-info border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Project Manager</div>
+                    <div class="card-body">
+                      <p class="card-text">Edit the customer information</p>
+                      <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputFirstname">TenantId</label>
+                            <input type="text" class="form-control" placeholder="{{currentCustomer.reference}}" readonly 
+                            [(ngModel)]="currentCustomer.reference" >
+                        </div>
+                        </div>
+                        <form>
+                            <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="contact">Technical Manager</label>
+                                <input type="text" class="form-control" required
+                                id="contact"
+                                [(ngModel)]="currentCustomer.contact"
+                                name="contact" >
+                            </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="email">Email address</label>
+                                    <input type="email" class="form-control" placeholder="example@orange.com" required
+                                    id="email"
+                                    [(ngModel)]="currentCustomer.email"
+                                    name="email" >
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="update_azCustomers()">Update</button>
+                            <br>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span class="sr-only">Close</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="alert alert-success" role="alert">
+                                            <span class="alert-icon"><span class="sr-only">Success</span></span>
+                                            <p>{{ message }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="alert alert-danger" role="alert" *ngIf="!currentCustomer">
+                                <span class="alert-icon"><span class="sr-only">Danger</span></span>
+                                <p>Cannot access on database...</p>
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm">
+                <div class="card bg-warning border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Fusion</div>
+                    <div class="card-body">
+                      <p class="card-text">Add/Update code</p>
+                      <form>
+                        <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="fusion">ID</label>
+                            <input type="text" class="form-control" required
+                            id="fusion"
+                            [(ngModel)]="currentCustomer.fusion"
+                            name="fusion" >
+                        </div>
+                        </div>
+                        <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="update_azCustomers()">Update</button>
+                        <br>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="alert alert-success" role="alert">
+                                        <span class="alert-icon"><span class="sr-only">Success</span></span>
+                                        <p>{{ message }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" role="alert" *ngIf="!currentCustomer">
+                            <span class="alert-icon"><span class="sr-only">Danger</span></span>
+                            <p>Cannot access on database...</p>
+                        </div>
+                    </form>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm">
+                <div class="card bg-light border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Pricing calculator</div>
+                    <div class="card-body">
+                      <p class="card-text">Configure and estimate the costs for Azure products</p>
+                      <a type="submit" class="btn btn-secondary" href="https://azure.microsoft.com/fr-fr/pricing/calculator/" target="_blank">Estimate</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-sm">
+                <div class="card bg-light border-secondary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Help</div>
+                    <div class="card-body">
+                      <p class="card-text">Technical support is available to customers with a support plan</p>
+                      <a type="submit" class="btn btn-secondary" href="https://servicedesk.orangeapplicationsforbusiness.com/secure/CreateIssue.jspa" target="_blank">Create</a>
+                    </div>
+                  </div>
+            </div>
+            
+          </div>
+
+    </div>
+</div>
